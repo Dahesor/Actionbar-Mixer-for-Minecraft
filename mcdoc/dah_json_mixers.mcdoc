@@ -1,0 +1,19 @@
+dispatch minecraft:storage["dah:actbar"] to struct{
+    data?: [player_json],
+    temp?: any,
+    sleep?: [player_json],
+    new?: json_obj,
+    separator?: #[text_component] string,
+}
+
+struct player_json{
+    UID: int @ -1..,
+    content: [json_obj],
+    UUID: #[uuid] string,
+    separator: #[text_component] string,
+}
+
+struct json_obj{
+    id: any,
+    json: #[text_component] string,
+}
