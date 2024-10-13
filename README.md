@@ -6,7 +6,7 @@ It only directly supports `1.21+`. However, by slightly modifying it (like addin
 
 ## Appending A Text Component
 
-Every text segment must contains an id, and a JSON Text Component:
+Every text segments must contains an id, and a JSON Text Component:
 
 * (A text segment) (compound tag)
 *  |--- `id` (string. Any id at your choose. Avoid using quotation marks.)
@@ -76,13 +76,13 @@ To pause the display on a specific player, tag the player with `dah.actbar.pause
 
 All text segments is stored in storage `dah:actbar` under key `data`.
 
-It is a list, and each of its element represents a player. You may execute `function dah.actbar_mixer:z_private/uid/get` as a player, which will reorder the list so that this player is the first entry of the list.
+It is a list, and each of its elements represents a player. You may execute `function dah.actbar_mixer:z_private/uid/get` as a player, which will reorder the list so that this player is the first entry of the list.
 
-You may then directly changing `data[0].separator` which is this player's separator, or `data[0].content` which is list containing all segment objects.
+You may then directly changing `data[0].separator` which is this player's separator, or `data[0].content` which is a list containing all segment objects.
 
 ## Mcdoc File
 
-A mcdoc folder is provided with the data pack. Moving the mcdoc to the root of your own workspace, [Spyglass](https://github.com/SpyglassMC/Spyglass) (Datapack Helper Plus) with version 4.0+ will provided you with auto completion of the custom NBT storage used in the pack. 
+A mcdoc folder is provided with the data pack. Moving the mcdoc to the root of your own workspace, [Spyglass](https://github.com/SpyglassMC/Spyglass) (Datapack Helper Plus) with version 4.0+ will provided you with auto completion of the custom NBT storage used in the pack.
 
 ## Misc
 
