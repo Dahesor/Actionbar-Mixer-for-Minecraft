@@ -1,2 +1,1 @@
-$data remove storage dah:actbar data[].content[{id:"$(id)"}]
-
+$data remove storage dah:actbar data[].content[{id:'$(id)'}]

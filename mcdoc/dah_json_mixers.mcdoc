@@ -1,19 +1,78 @@
+use::java::util::text::Text
+
 dispatch minecraft:storage["dah:actbar"] to struct{
-    data?: [player_json],
+    /// Contians the action bar data for all players.
+    data?: [player_data],
     temp?: any,
-    sleep?: [player_json],
-    new?: json_obj,
-    separator?: #[text_component] string,
+    sleep?: [player_data],
+    /// New text segment to the action bar.
+    new?: NewTextSegment,
+    separator?: Text,
+
+    /// The default separator applied to all new players.
+    /// defaults to `" "` (one white space).
+    default_separator?: Text,
+
+    /// System information about this datapack
+    /// **Do not edit unless you know what you are doing!**
+    sys?: struct{
+        /// Data version of this datapack.
+        version?: int,
+        /// The name of this version
+        VersionName?:string,
+        /// MC version range this datapack is compatible with.
+        MCVersionRange?: string,
+        /// ping reply
+        pong__?: boolean,
+    }
 }
 
-struct player_json{
+struct player_data{
+    /// Player UID as a score
     UID: int @ -1..,
-    content: [json_obj],
+    /// Each text segment in the action bar.
+    /// The first entry is always kept to be {"text":""}
+    ///   to ensure that styles form segments do not affect each other.
+    ///   **Do not edit the first entry unless you know what you are doing**
+    content: [SavedTextSegment],
+
+    /// The player's HEX UUID as a string.
     UUID: #[uuid] string,
-    separator: #[text_component] string,
+
+    /// The player's separator.
+    separator: Text,
 }
 
-struct json_obj{
-    id: any,
-    json: #[text_component] string,
+struct SavedTextSegment{
+    /// Any unique id as a string.
+    /// Using a namespace form like "foo:bar" is recommended.
+    /// Please do not use single quote `'` in the id.
+    id: string,
+
+    /// The text to display as text component.
+    text: Text,
+
+    /// Any data that you want to store with the text component.
+    /// You can reference the nbt in this data in your text component:
+    ///     {
+    ///      storage:"dah:actbar",
+    ///      nbt:"data[0].content[{id:'YOUR_ID'}].data.NBT_PATH"
+    ///     }
+    data?: any,
+
+    /// Smaller number makes the text appear earlier in the action bar.
+    /// When using the new/insert function, if two texts have the same order,
+    ///    the one that was added first will appear in front.
+    /// When using the new/replace function, if two texts have the same order,
+    ///    the new text will replace the old one.
+    /// Has no effect when using new/(append|prepend).
+    order?: int,
+}
+
+struct NewTextSegment{
+    ...SavedTextSegment,
+    /// Smaller number makes the text appear earlier in the action bar. See the description of `order`.
+    /// **DEPRECATED**. Use __oreder__ instead. Keeps only for compatibility.
+    /// *REDIRECT: order*
+    list?: int,
 }

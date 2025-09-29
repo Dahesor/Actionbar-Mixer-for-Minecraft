@@ -1,6 +1,10 @@
 {
     "pack": {
-        "pack_format": 48,
-        "description": "This Data Pack allows you to\ndisplay multiple jsons on actionbar"
+        "pack_format": 81,
+        "description": "This Data Pack allows you to\ndisplay multiple jsons on actionbar",
+        "supported_formats": {
+            "min_inclusive": 48,
+            "max_inclusive": 100
+        }
     }
 }
