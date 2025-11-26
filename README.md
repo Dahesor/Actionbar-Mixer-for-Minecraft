@@ -75,7 +75,7 @@ Executing `function dah.actbar_mixer:empty/everything` clears all segments for a
 
 ## Separator
 
-Separator is what's placed between every text segments. The default separator applied to every new player is stored in `storage dah:actbar default_separator` as a text component. It defaults to "` `" (one white space).
+Separator is what's placed between every text segments. The default separator applied to every new player is stored in `storage dah:actbar default_separator` as a text component. It defaults to "" (Nothing).
 
 You may change `storage dah:actbar default_separator` to edit the default separator for every player.
 
@@ -88,7 +88,7 @@ This sets the separator of this player to `-`.
 
 A macro version of this function is also provided as `function dah.actbar_mixer:separator/set`:
 ```mcfunction
-function dah.actbar_mixer:separator/set {separator:"-"}
+function dah.actbar_mixer:separator/set {separator:'"-"'}
 ```
 Again, this costs more performance and you will not get any autocompleting from mcdoc.
 
