@@ -1,2 +1,2 @@
-data modify storage dah:actbar sys merge value {version:2,MCVersionRange:"1.21~1.21.10",VersionName:"v1.3.1"}
+data modify storage dah:actbar sys merge value {version:3,MCVersionRange:"1.21~1.21.10",VersionName:"v1.3.2"}
 execute unless data storage dah:actbar default_separator run data modify storage dah:actbar default_separator set value ""
