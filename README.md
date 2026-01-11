@@ -21,8 +21,8 @@ Every text segments must contains an id, and a Text Component:
 
 To add a text component to a player's actionbar, first store the NBT structure above to storage `dah:actbar` under key `new`, then run `function dah.actbar_mixer:new/(append|prepend|insert|replace_index|update_id)` as the target player:
 
- - **function dah.actbar_mixer:new/append**: Append this segment to the right of the actionbar. The `order` of the new segment will to set to the current highest order + 1. The `order` from input will not be used.
- - **function dah.actbar_mixer:new/prepend**: Prepend this segment to the left of the actionbar. The `order` of the new segment will to set to the current lowest order - 1. The `order` from input will not be used.
+ - **function dah.actbar_mixer:new/append**: Append this segment to the right of the actionbar. The `order` of the new segment will be set to the current highest order + 1. The `order` from input will not be used.
+ - **function dah.actbar_mixer:new/prepend**: Prepend this segment to the left of the actionbar. The `order` of the new segment will be set to the current lowest order - 1. The `order` from input will not be used.
  - **function dah.actbar_mixer:new/insert**: Insert this text segment to a specific location of the actionbar determined by your input `order`. if two texts have the same order, the one that was added first will appear in front.
  - **function dah.actbar_mixer:new/replace_index**: Same as **new/insert**, but it first delete all segments with the same `order`.
  - **function dah.actbar_mixer:new/update_id**: Same as **new/insert**, but it first delete all segments with the same `id`.
