@@ -97,7 +97,7 @@ To set the separator for all players (is online or was online), directly change 
 data modify storage dah:actbar data[].separator set value "="
 ```
 
-Finally, running `function dah.actbar_mixer:separator/reset_all` resets all players' separator (offline included) back to one white space.
+Finally, running `function dah.actbar_mixer:separator/reset_all` resets all players' separator (offline included) back to the default value.
 
 ## Turning Off
 
