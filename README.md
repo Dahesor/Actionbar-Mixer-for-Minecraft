@@ -109,7 +109,7 @@ To pause the display on a specific player, tag the player with `dah.actbar.pause
 
 All text segments is stored in storage `dah:actbar` under key `data`.
 
-It is a order, and each of its elements represents a player. You may execute `function dah.actbar_mixer:z_private/uid/get` as a player, which will reorder the order so that this player is the first entry of the order.
+It is a list, and each of its elements represents a player. You may execute `function dah.actbar_mixer:z_private/uid/get` as a player, which will reorder the order so that this player is the first entry of the list.
 
 You may then directly changing `data[0].separator` which is this player's separator, or `data[0].content` which is a list containing all segment objects. Do not edit `data[0].content[0]`, which is a root used to make sure that the style in each segment is independent.
 
