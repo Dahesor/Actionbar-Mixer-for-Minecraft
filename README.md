@@ -1,4 +1,4 @@
-# DAM Actionbar Mixer v1.3
+# DAM Actionbar Mixer
 
 [中文](./readme/zh_cn.md)
 
