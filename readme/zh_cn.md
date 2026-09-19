@@ -1,4 +1,4 @@
-# DAM Actionbar Mixer v1.3
+# DAM Actionbar Mixer
 
 本库允许你组合不同的文本组件片段一起显示在 actionbar 上。
 
