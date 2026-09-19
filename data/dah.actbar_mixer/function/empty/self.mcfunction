@@ -1,4 +1,4 @@
 execute unless score @s dah.actbar.UID matches 1.. run return -1
 function dah.actbar_mixer:z_private/uid/get
 
-data modify storage dah:actbar data[0].content set value [{id:"dah_actbar:ROOT_RESET",text:{text:""}}]
+data modify storage dah:actbar data[0].content set value []

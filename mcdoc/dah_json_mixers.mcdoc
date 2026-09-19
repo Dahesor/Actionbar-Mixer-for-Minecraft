@@ -10,7 +10,7 @@ dispatch minecraft:storage["dah:actbar"] to struct{
     separator?: Text,
 
     /// The default separator applied to all new players.
-    /// defaults to `" "` (one white space).
+    /// defaults to `""` (nothing).
     default_separator?: Text,
 
     /// System information about this datapack
@@ -24,7 +24,9 @@ dispatch minecraft:storage["dah:actbar"] to struct{
         MCVersionRange?: string,
         /// ping reply
         pong__?: boolean,
-    }
+    },
+    display?: Text,
+    parsing?: [Text],
 }
 
 struct player_data{
@@ -71,8 +73,9 @@ struct SavedTextSegment{
 
 struct NewTextSegment{
     ...SavedTextSegment,
-    /// Smaller number makes the text appear earlier in the action bar. See the description of `order`.
     /// **DEPRECATED**. Use __oreder__ instead. Keeps only for compatibility.
+    /// Smaller number makes the text appear earlier in the action bar. See the description of `order`.
     /// *REDIRECT: order*
+    #[deprecated="1.13"]
     list?: int,
 }

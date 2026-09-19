@@ -2,7 +2,7 @@
 
 本库允许你组合不同的文本组件片段一起显示在 actionbar 上。
 
-支持 `1.21+`。
+支持 `1.21.5+`。
 
 By Dahesor
 
@@ -14,7 +14,8 @@ By Dahesor
 *  |--- `id`（字符串。任何你想要的 ID。建议使用类似 `foo:bar` 的命名空间制。请勿使用引号）
 *  |--- `text`（文本组件（1.21.5+ 为 snbt，1.21.4- 为字符串形式的 JSON）要显示的文本）
 *  |--- `order`（*可选* 整数。决定该文字在 actionbar 上显示的顺序。更小的数字会使这个片段更靠左侧。默认为 `0`。）
-*  |--- `list`（整数。**已弃用**。请使用 `order`）
+*  |--- `list`（*可选* 整数。**已弃用**。请使用 `order`）
+*  |--- `data` (*可选* 任意。存储任意数据。可以在文本组件中使用：`{storage:"dah:actbar",nbt:"data[0].content[{id:'<ID>'}].data.NBT_PATH"}`)
 
 要将一个文本组件添加到玩家的 actionbar 上，首先将上述 NBT 结构存储到 `dah:actbar` 的 `new` 键中，然后以该玩家身份执行 `function dah.actbar_mixer:new/(append|prepend|insert|replace_index|update_id)`：
 
@@ -77,7 +78,7 @@ function dah.actbar_mixer:empty/everything
 
 ## 分隔符
 
-分隔符用于各个文本片段之间的分隔。默认的分隔符存储在`storage dah:actbar default_separator`中，是一个文本组件，默认为一个空格（"` `"）。
+分隔符用于各个文本片段之间的分隔。默认的分隔符存储在`storage dah:actbar default_separator`中，是一个文本组件，默认为空（`""`）。
 
 你可以更改 `storage dah:actbar default_separator` 来修改所有玩家的默认分隔符。
 
@@ -89,7 +90,7 @@ function dah.actbar_mixer:separator/from
 
 另一个更简洁的方式是使用宏指令：
 ```mcfunction
-function dah.actbar_mixer:separator/set {separator:"-"}
+function dah.actbar_mixer:separator/set {separator:{text:"="}}
 ```
 
 若要设置所有玩家的分隔符（包括离线），可以直接修改`data[].separator`：
@@ -114,7 +115,7 @@ function dah.actbar_mixer:separator/reset_all
 
 这是一个列表，每个元素代表一个玩家。你可以以某个玩家身份执行：
 ```mcfunction
-function dah.actbar_mixer:z_private/uid/get
+function dah.actbar_mixer:get_data
 ```
 该命令会将该玩家移到列表的首位。
 
@@ -123,7 +124,6 @@ function dah.actbar_mixer:z_private/uid/get
 data[0].separator
 data[0].content
 ```
-**不要编辑 `data[0].content[0]`，那是一个用于保持样式独立性的根节点。**
 
 若想为所有玩家添加相同的文本组件，只需向`data[].content`路径追加内容：
 ```mcfunction
@@ -145,7 +145,7 @@ data modify storage dah:actbar data[].content append value {id:"test:4",text:"He
 			"@vanilla-resourcepack",
 			"@vanilla-mcdoc"
 		],
-		"gameVersion": "1.21.5"
+		"gameVersion": "26.3"
 	}
 }
 ```

@@ -4,7 +4,7 @@
 
 This library allows you combine and display different segments of text components on player actionbar.
 
-Supports `1.21+`.
+Supports `1.21.5+`.
 
 By Dahesor
 
@@ -14,9 +14,10 @@ Every text segments must contains an id, and a Text Component:
 
 * (A text segment) (compound tag)
 *  |--- `id` (string. Any id at your choose. Avoid using quotation marks.)
-*  |--- `text` (text component (1.21.5+ as snbt, 1.21.4- as json string). The text to display)
+*  |--- `text` (text component. The text to display)
 *  |--- `order` (*Optional* int. Determines the order of this text on the action bar. A smaller value makes the text more on the left side. Defaults to `0`)
-*  |--- `list` (int. **DEPRECATED**. Same as `order`)
+*  |--- `list` (*Optional* int. **DEPRECATED**. Same as `order`)
+*  |--- `data` (*Optional* any. Any data that you want to store with the text component. You can reference the nbt in this data in your text component: `{storage:"dah:actbar",nbt:"data[0].content[{id:'YOUR_ID'}].data.NBT_PATH"}`)
 
 
 To add a text component to a player's actionbar, first store the NBT structure above to storage `dah:actbar` under key `new`, then run `function dah.actbar_mixer:new/(append|prepend|insert|replace_index|update_id)` as the target player:
@@ -55,9 +56,6 @@ data modify storage dah:actbar new set value {id:"test:beautiful",text:{"text":"
 function dah.actbar_mixer:new/update_id
 ```
 
-
-
-
 ## Removing A Text Component
 
 To remove a segment of a target, execute the following remove function as that target:
@@ -75,11 +73,11 @@ Executing `function dah.actbar_mixer:empty/everything` clears all segments for a
 
 ## Separator
 
-Separator is what's placed between every text segments. The default separator applied to every new player is stored in `storage dah:actbar default_separator` as a text component. It defaults to "" (Nothing).
+Separator is what's placed between every text segments. The default separator applied to every new player is stored in `storage dah:actbar default_separator` as a text component. It defaults to `""` (Nothing).
 
 You may change `storage dah:actbar default_separator` to edit the default separator for every player.
 
-To change the separator of a single player, first store the JSON object as a string to storage `dah:actbar` under key `separator`, the execute `function dah.actbar_mixer:separator/from` as the player:
+To change the separator of a single player, first write the text component to storage `dah:actbar` under key `separator`, the execute `function dah.actbar_mixer:separator/from` as the player:
 ```mcfunction
 data modify storage dah:actbar separator set value "-"
 function dah.actbar_mixer:separator/from
@@ -88,7 +86,7 @@ This sets the separator of this player to `-`.
 
 A macro version of this function is also provided as `function dah.actbar_mixer:separator/set`:
 ```mcfunction
-function dah.actbar_mixer:separator/set {separator:'"-"'}
+function dah.actbar_mixer:separator/set {separator:{text:"="}}
 ```
 Again, this costs more performance and you will not get any autocompleting from mcdoc.
 
@@ -109,9 +107,9 @@ To pause the display on a specific player, tag the player with `dah.actbar.pause
 
 All text segments is stored in storage `dah:actbar` under key `data`.
 
-It is a list, and each of its elements represents a player. You may execute `function dah.actbar_mixer:z_private/uid/get` as a player, which will reorder the order so that this player is the first entry of the list.
+It is a list, and each of its elements represents a player. You may execute `function dah.actbar_mixer:get_data` as a player, which will reorder the order so that this player is the first entry of the list.
 
-You may then directly changing `data[0].separator` which is this player's separator, or `data[0].content` which is a list containing all segment objects. Do not edit `data[0].content[0]`, which is a root used to make sure that the style in each segment is independent.
+You may then directly changing `data[0].separator` which is this player's separator, or `data[0].content` which is a list containing all segment objects.
 
 To append the same text component for all players (is online or was online), simply append the arguments to storage `dah:actbar` under path `data[].content`:
 ```mcfunction
@@ -132,7 +130,7 @@ Example content of the `spyglass.json` file. See [Spyglass Documentation](https:
 			"@vanilla-resourcepack",
 			"@vanilla-mcdoc"
 		],
-		"gameVersion": "1.21.5"
+		"gameVersion": "26.3"
 	}
 }
 ```

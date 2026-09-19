@@ -1,0 +1,1 @@
+$execute if data storage dah:actbar data[{UUID:"$(out)"}] run data remove storage dah:actbar data[{UUID:"$(out)"}]

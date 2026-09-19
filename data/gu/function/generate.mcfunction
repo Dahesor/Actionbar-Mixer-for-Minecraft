@@ -1,4 +1,4 @@
-data merge storage gu:temp {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,a:0,b:0,c:0,d:0,e:0,f:0}
+data merge storage gu:temp {"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,a:0,b:0,c:0,d:0,e:0,f:0}
 execute unless score @s gu.uuid.0 matches -2147483648.. run function gu:zzz/store_uuid
 
 execute store result score 0= gu.main run scoreboard players operation 1= gu.main = @s gu.uuid.0

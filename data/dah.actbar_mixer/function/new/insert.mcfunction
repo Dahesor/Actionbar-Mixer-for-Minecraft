@@ -5,7 +5,7 @@ scoreboard players set #order dah.actbar.calc 0
 execute if data storage dah:actbar new.list store result score #order dah.actbar.calc run data get storage dah:actbar new.list
 execute if data storage dah:actbar new.order store result score #order dah.actbar.calc run data get storage dah:actbar new.order
 
-execute unless data storage dah:actbar data[0].content[1] run return run function dah.actbar_mixer:z_private/insert/here
+execute unless data storage dah:actbar data[0].content[0] run return run function dah.actbar_mixer:z_private/insert/here
 
 data modify storage dah:actbar temp set value []
 function dah.actbar_mixer:z_private/insert/loop
