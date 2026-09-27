@@ -76,6 +76,6 @@ struct NewTextSegment{
     /// **DEPRECATED**. Use __oreder__ instead. Keeps only for compatibility.
     /// Smaller number makes the text appear earlier in the action bar. See the description of `order`.
     /// *REDIRECT: order*
-    #[deprecated="1.13"]
+    #[deprecated]
     list?: int,
 }
