@@ -1,8 +1,11 @@
+#>@public @user dah.actbar_mixer:version
 # When executes in chat, output the version of the datapack
 # This function will return the numic version of the datapack
-# It also sets
-#    dah:actbar sys.pong__
-# to true, so external systems can detect that the datapack is loaded
+# @writes storage dah:actbar sys.pong__
+#   Set to true for easy detection of the datapack being loaded
+# @returns the numeric version of actionbar mixer
+
+#>@public storage dah:actbar The storage for actionbar mixer data
 
 function dah.actbar_mixer:z_private/init
 data modify storage dah:actbar sys.pong__ set value true

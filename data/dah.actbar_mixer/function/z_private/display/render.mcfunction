@@ -1,3 +1,5 @@
+#>@internal dah.actbar_mixer:z_private/display/render
+
 execute unless data storage dah:actbar data[0].content[0] run return run title @s actionbar ""
 data modify storage dah:actbar parsing set value []
 data modify storage dah:actbar parsing append from storage dah:actbar data[0].content[].text

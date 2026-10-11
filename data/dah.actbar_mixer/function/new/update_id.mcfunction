@@ -1,3 +1,10 @@
+#>@public dah.actbar_mixer:new/update_id
+# Insert a new actionbar entry after deleting the old one with the same id.
+# @context As the player whose actionbar is being modified
+# @input storage dah:actbar new
+#   The new actionbar entry to insert. See documentation.
+# @returns `1` If the operation was successful
+
 execute unless score @s dah.actbar.UID matches 1.. run return fail
 function dah.actbar_mixer:z_private/uid/get
 

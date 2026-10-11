@@ -1,3 +1,5 @@
+#>@internal dah.actbar_mixer:z_private/display/main
+
 scoreboard players set #test dah.actbar.calc 0
 function dah.actbar_mixer:z_private/display/get_player with storage dah:actbar data[0]
 execute if score #test dah.actbar.calc matches 0 run data modify storage dah:actbar sleep append from storage dah:actbar data[0]

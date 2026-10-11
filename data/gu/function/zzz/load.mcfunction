@@ -1,3 +1,19 @@
+#>gu:zzz/load
+# @protected within minecraft
+
+#>@protected objective gu.main
+#>@protected objective gu.uuid.0
+#>@protected objective gu.uuid.1
+#>@protected objective gu.uuid.2
+#>@protected objective gu.uuid.3
+#>@protected objective num
+
+#>@protected score 0=
+#>@protected score 1=
+#>@protected score 2=
+#>@protected score 3=
+#>@protected score 256
+
 scoreboard objectives add gu.main dummy
 scoreboard objectives add gu.uuid.0 dummy
 scoreboard objectives add gu.uuid.1 dummy

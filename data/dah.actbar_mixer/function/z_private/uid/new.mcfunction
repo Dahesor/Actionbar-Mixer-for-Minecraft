@@ -1,3 +1,5 @@
+#>@internal dah.actbar_mixer:z_private/uid/new
+
 scoreboard players add #NEW dah.actbar.UID 1
 scoreboard players operation @s dah.actbar.UID = #NEW dah.actbar.UID
 

@@ -1,3 +1,5 @@
+#>@internal dah.actbar_mixer:z_private/insert/loop
+
 execute store result score #this dah.actbar.calc run data get storage dah:actbar data[0].content[-1].order
 execute if score #order dah.actbar.calc >= #this dah.actbar.calc run return run function dah.actbar_mixer:z_private/insert/here
 data modify storage dah:actbar temp prepend from storage dah:actbar data[0].content[-1]

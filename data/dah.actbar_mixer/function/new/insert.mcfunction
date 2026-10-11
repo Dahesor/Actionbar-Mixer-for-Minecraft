@@ -1,3 +1,10 @@
+#>@public dah.actbar_mixer:new/insert
+# Insert a new actionbar entry at the specified position
+# @context As the player whose actionbar is being modified
+# @input storage dah:actbar new
+#   The new actionbar entry to insert. See documentation.
+# @returns `1` If the operation was successful
+
 execute unless score @s dah.actbar.UID matches 1.. run return fail
 function dah.actbar_mixer:z_private/uid/get
 

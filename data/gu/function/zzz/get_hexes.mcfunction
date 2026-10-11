@@ -1,3 +1,5 @@
+#>@protected gu:zzz/get_hexes
+
 $data modify storage gu:temp 0 set from storage gu:main hex_chars[$(0)]
 $data modify storage gu:temp 1 set from storage gu:main hex_chars[$(1)]
 $data modify storage gu:temp 2 set from storage gu:main hex_chars[$(2)]

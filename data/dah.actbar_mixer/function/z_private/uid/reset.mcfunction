@@ -1,3 +1,5 @@
+#>@internal dah.actbar_mixer:z_private/uid/reset
+
 function dah.actbar_mixer:z_private/uid/get
 data remove storage dah:actbar data[0]
 scoreboard players reset @s dah.actbar.UID

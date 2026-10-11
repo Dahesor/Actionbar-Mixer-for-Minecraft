@@ -1,3 +1,5 @@
+#>@internal dah.actbar_mixer:z_private/init
+
 execute store result score #this dah.actbar.calc run data get storage dah:actbar sys.version
 execute if data storage dah:actbar sys.version if score #this dah.actbar.calc matches ..3 if data storage dah:actbar data[0].content[0] run data remove storage dah:actbar data[].content[{id:"dah_actbar:ROOT_RESET"}]
 
